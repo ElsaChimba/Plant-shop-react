@@ -6,11 +6,13 @@ import { motion } from "framer-motion";
 interface Plant {
   id: number;
   common_name: string;
-  scientific_name: string;
+  scientific_name: string[];
   default_image?: {
-    medium_url: string;
+    medium_url?: string;
+    regular_url?: string;
   };
-  medical_use?: string;
+  cycle?: string;
+  watering?: string;
 }
 
 export default function PlantCard({ plant }: { plant: Plant }) {
@@ -26,16 +28,21 @@ export default function PlantCard({ plant }: { plant: Plant }) {
         <div className="relative w-full h-48">
           <Image
             src={plant.default_image.medium_url}
-            alt={plant.common_name || plant.scientific_name}
+            alt={plant.common_name || plant.scientific_name?.[0] || "Planta"}
             fill
             style={{ objectFit: "cover" }}
           />
         </div>
       )}
       <div className="p-4">
-        <h3 className="text-xl font-semibold mb-2">{plant.common_name || plant.scientific_name}</h3>
-        <p className="text-sm mb-2">{plant.scientific_name}</p>
-        {plant.medical_use && <p className="text-sm font-medium">Uso: {plant.medical_use}</p>}
+        <h3 className="text-xl font-semibold mb-2">
+          {plant.common_name || plant.scientific_name?.[0]}
+        </h3>
+        <p className="text-sm mb-2">
+          {plant.scientific_name?.join(", ")}
+        </p>
+        {plant.cycle && <p className="text-sm">Ciclo: {plant.cycle}</p>}
+        {plant.watering && <p className="text-sm">Regar: {plant.watering}</p>}
       </div>
     </motion.div>
   );
