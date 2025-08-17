@@ -5,27 +5,12 @@ import Link from 'next/link';
 import Footer from '../components/footer';
 import Servicos from '@/components/servicos';
 import { motion } from 'framer-motion';
+import Navbar from '@/components/navbar';
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-green-700 via-green-600 to-green-500 text-white">
-      <header className="flex justify-between items-center px-10 py-6 bg-green-800/80 sticky top-0 z-50">
-        <Image
-        src="/logo.png"
-        alt='logotipo'
-        width={100}
-        height={100}
-        />
-        <nav className="space-x-8">
-          <Link href="/plantas" className="hover:text-green-200 transition">
-            Plantas
-          </Link>
-          <Link href="/flores" className="hover:text-green-200 transition">
-            Flores
-          </Link>
-        </nav>
-      </header>
-
+      <Navbar />
       <main className="flex flex-col md:flex-row items-center px-10 py-20 gap-10">
         <div className="md:w-1/2 space-y-6">
           <motion.h1
