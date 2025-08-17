@@ -1,11 +1,21 @@
-export async function fetchPlantas() {
-  const res = await fetch("https://perenual.com/api/species-list?key=Ysk-7Kzw68a20821b7dce11880&filter=plant");
+import { NextResponse } from "next/server";
+
+export async function GET() {
+  const res = await fetch(
+    "https://perenual.com/api/v2/species-list?key=Ysk-7Kzw68a20821b7dce11880&q=flower"
+  );
   const data = await res.json();
-  return data.data; 
+  return NextResponse.json(data?.data || []);
 }
 
-export async function fetchFlores() {
-  const res = await fetch("https://perenual.com/api/species-list?key=Ysk-7Kzw68a20821b7dce11880&filter=flower");
+export async function fetchPlantas() {
+  const res = await fetch(
+    "https://perenual.com/api/v2/species-list?key=Ysk-7Kzw68a20821b7dce11880&q=plant"
+  );
   const data = await res.json();
-  return data.data;
+  return NextResponse.json(data?.data || []);
 }
+// function fetchFlores() {
+//     throw new Error("Function not implemented.");
+// }
+
