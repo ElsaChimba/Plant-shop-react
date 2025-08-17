@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   const res = await fetch(
-    "https://perenual.com/api/v2/species-list?key=Ysk-7Kzw68a20821b7dce11880&q=flower",
+    "https://trefle.io/api/v1/plants?token=n6ndIJXVarXHcn0RuTIigwI_Z5xTY1d2iiyML5cKoR8",
     {
       headers: {
         "User-Agent": "Mozilla/5.0",

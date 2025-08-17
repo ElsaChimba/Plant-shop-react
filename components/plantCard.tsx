@@ -6,11 +6,8 @@ import { motion } from "framer-motion";
 interface Plant {
   id: number;
   common_name: string;
-  scientific_name: string[];
-  default_image?: {
-    medium_url?: string;
-    regular_url?: string;
-  };
+  scientific_name: string;
+  image_url?: string;
   cycle?: string;
   watering?: string;
 }
@@ -24,11 +21,11 @@ export default function PlantCard({ plant }: { plant: Plant }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      {plant.default_image?.medium_url && (
+      {plant.image_url && (
         <div className="relative w-full h-48">
           <Image
-            src={plant.default_image.medium_url}
-            alt={plant.common_name || plant.scientific_name?.[0] || "Planta"}
+            src={plant.image_url}
+            alt={plant.common_name || plant.scientific_name || "Planta"}
             fill
             style={{ objectFit: "cover" }}
           />
@@ -36,10 +33,10 @@ export default function PlantCard({ plant }: { plant: Plant }) {
       )}
       <div className="p-4">
         <h3 className="text-xl font-semibold mb-2">
-          {plant.common_name || plant.scientific_name?.[0]}
+          {plant.common_name || plant.scientific_name}
         </h3>
         <p className="text-sm mb-2">
-          {plant.scientific_name?.join(", ")}
+          {plant.scientific_name}
         </p>
         {plant.cycle && <p className="text-sm">Ciclo: {plant.cycle}</p>}
         {plant.watering && <p className="text-sm">Regar: {plant.watering}</p>}
