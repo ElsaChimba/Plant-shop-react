@@ -16,9 +16,9 @@ export default function Footer() {
           </p>
           <p className="text-sm">Feito por Elsa Chimba</p>
           <div className="flex space-x-4 mt-2">
-            <a href="#" className="hover:text-green-200"><FaFacebookF /></a>
-            <a href="#" className="hover:text-green-200"><FaInstagram /></a>
-            <a href="#" className="hover:text-green-200"><FaLinkedin /></a>
+            <a href="https://www.facebook.com/ely.chimba.1" className="hover:text-green-200"><FaFacebookF /></a>
+            <a href="https://www.instagram.com/elsa_chimba/" className="hover:text-green-200"><FaInstagram /></a>
+            <a href="https://www.linkedin.com/in/elsa-chimba-1a25012a0/" className="hover:text-green-200"><FaLinkedin /></a>
           </div>
         </div>
 
