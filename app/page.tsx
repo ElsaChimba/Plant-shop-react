@@ -1,103 +1,79 @@
-import Image from "next/image";
+"use client";
+
+import Image from 'next/image';
+import Link from 'next/link';
+import Footer from '../components/footer';
+import Servicos from '@/components/servicos';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-green-700 via-green-600 to-green-500 text-white">
+      <header className="flex justify-between items-center px-10 py-6 bg-green-800/80 sticky top-0 z-50">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+        src="/logo.png"
+        alt='logotipo'
+        width={100}
+        height={100}
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+        <nav className="space-x-8">
+          <Link href="/plantas" className="hover:text-green-200 transition">
+            Plantas
+          </Link>
+          <Link href="/flores" className="hover:text-green-200 transition">
+            Flores
+          </Link>
+        </nav>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      <main className="flex flex-col md:flex-row items-center px-10 py-20 gap-10">
+        <div className="md:w-1/2 space-y-6">
+          <motion.h1
+            className="text-4xl font-bold"
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Bem-vindo à E_PlantShop
+          </motion.h1>
+
+          <motion.p
+            className="text-lg"
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Read our docs
-          </a>
+            Fundada em <span className="font-semibold">2025</span>, nossa missão é trazer a beleza e o frescor da natureza para sua casa, jardim ou eventos especiais.
+            Cada planta e flor que oferecemos é cuidadosamente selecionada para proporcionar charme, bem-estar e sofisticação ao seu espaço.
+          </motion.p>
+
+          <motion.p
+            className="text-lg"
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Quer transformar seu ambiente com nossas plantas?
+            <Link href="/encomendas" className="ml-2 inline-block bg-green-600 hover:bg-green-500 text-white font-semibold px-4 py-2 rounded transition">
+              Encomendar Agora
+            </Link>
+          </motion.p>
+        </div>
+
+        <div className="md:w-1/2">
+          <Image
+            src="/suporte-de-plantas.webp"
+            alt="Suporte de plantas"
+            width={600}
+            height={400}
+            className="rounded-lg shadow-lg"
+          />
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      <Servicos />
+
+      <Footer />
     </div>
   );
 }
