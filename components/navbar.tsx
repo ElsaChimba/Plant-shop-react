@@ -14,6 +14,9 @@ export default function Navbar() {
         height={120}
       />
       <nav className="space-x-8 ">
+        <Link href="/" className="hover:text-green-200 transition border-b border-green-600">
+          Início
+        </Link>
         <Link href="/plantas" className="hover:text-green-200 transition border-b border-green-600">
           Plantas
         </Link>
